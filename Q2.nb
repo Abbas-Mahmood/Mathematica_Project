@@ -1,0 +1,214 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6314,        206]
+NotebookOptionsPosition[      5623,        185]
+NotebookOutlinePosition[      6015,        201]
+CellTagsIndexPosition[      5972,        198]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[{
+ "The equation ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", " ", "=", " ", 
+    RowBox[{"2", 
+     RowBox[{"sin", "(", "x", ")"}]}]}], TraditionalForm]],ExpressionUUID->
+  "32f4eb58-57c0-4de0-93d1-10988410aaab"],
+ " is solved using the fixed point iteration algorithm ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["x", 
+     RowBox[{"n", "+", "1"}]], " ", "=", " ", 
+    RowBox[{"2", 
+     RowBox[{"sin", "(", 
+      SubscriptBox["x", "n"], ")"}]}]}], TraditionalForm]],ExpressionUUID->
+  "999d6402-ecf9-489f-8f1b-9c6ffdac178c"],
+ " with initial guess ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[InvisiblePrefixScriptBase]", 
+     SubscriptBox["x", "0"]}], "=", "1"}], TraditionalForm]],ExpressionUUID->
+  "bc4542e3-0d66-49a9-a80d-435edbe14b9c"],
+ ", and seeking ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"\[LeftBracketingBar]", 
+     RowBox[{
+      SubscriptBox["x", 
+       RowBox[{"n", "+", "1"}]], "-", 
+      SubscriptBox["x", "n"]}], "\[RightBracketingBar]"}], "<", 
+    SuperscriptBox["10", 
+     RowBox[{"-", "14"}]]}], TraditionalForm]],ExpressionUUID->
+  "cc1ca612-5e0c-4e7c-b69f-d35db650cbd6"],
+ ".  Solution obtained is ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "=", "\[InvisibleSpace]", 
+    TagBox[
+     InterpretationBox[
+      StyleBox["\<\"1.895494267033978\"\>",
+       ShowStringCharacters->False],
+      1.8954942670339776`,
+      AutoDelete->True],
+     NumberForm[#, 16]& ]}], TraditionalForm]],ExpressionUUID->
+  "f84d98cb-b1b0-49e4-a896-b9ee20cde3a3"],
+ ", so that ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"x", "-", 
+    RowBox[{"2", 
+     RowBox[{"sin", "(", "x", ")"}]}]}], TraditionalForm]],ExpressionUUID->
+  "f7919c76-fb0e-4db4-8618-464df44edc96"],
+ " = 0 with an error of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"-", "5.551115123125783`*^-15"}], TraditionalForm]],ExpressionUUID->
+  "a8d31de8-0228-4767-a070-4e383d555dca"]
+}], "Text",
+ CellChangeTimes->{{3.847184825394475*^9, 
+  3.847184829589404*^9}},ExpressionUUID->"913c1f88-beff-4def-b7e3-\
+3fe24c1c16d2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    SubscriptBox["x", "n"], " ", "=", " ", "1"}], " ", ";", 
+   RowBox[{"(*", 
+    RowBox[{"initial", " ", "x", " ", "value"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"\[Epsilon]", "=", "1"}], " ", ";"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "initialise", " ", "\[Epsilon]", " ", "as", " ", "arbitrary", " ", "value",
+     " ", "greater", " ", "than", " ", "tolerance"}], " ", 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"tolerance", " ", "=", " ", 
+   RowBox[{"10", "^", 
+    RowBox[{"-", "14"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"While", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Abs", "[", "\[Epsilon]", "]"}], ">", " ", "tolerance"}], ",", 
+    " ", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["x", 
+        RowBox[{"n", "+", "1"}]], " ", "=", " ", 
+       RowBox[{"2", 
+        RowBox[{"Sin", "[", 
+         SubscriptBox["x", "n"], "]"}]}]}], ",", " ", 
+      RowBox[{"\[Epsilon]", "=", " ", 
+       RowBox[{
+        SubscriptBox["x", 
+         RowBox[{"n", "+", "1"}]], "-", 
+        SubscriptBox["x", "n"]}]}], ",", 
+      RowBox[{
+       SubscriptBox["x", "n"], "=", 
+       SubscriptBox["x", 
+        RowBox[{"n", "+", "1"}]]}]}], "}"}]}], "]"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{"\"\<x = \>\"", ",", 
+   RowBox[{"NumberForm", "[", 
+    RowBox[{
+     RowBox[{"N", "[", 
+      SubscriptBox["x", 
+       RowBox[{"n", "+", "1"}]], "]"}], ",", "16"}], "]"}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", 
+  RowBox[{
+  "\"\<\!\(\*Cell[\"Error:\",ExpressionUUID->\"73e28eae-9c30-4067-b2f1-\
+9e65a40cbbc3\"]\)\>\"", ",", 
+   RowBox[{"N", "[", 
+    RowBox[{
+     SubscriptBox["x", 
+      RowBox[{"n", "+", "1"}]], "-", 
+     RowBox[{"2", 
+      RowBox[{"Sin", "[", 
+       SubscriptBox["x", 
+        RowBox[{"n", "+", "1"}]], "]"}]}]}], "]"}]}], "]"}]}], "Input",
+ CellLabel->"In[19]:=",ExpressionUUID->"24c7d67b-adee-4959-8962-f16ec70887ba"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"x = \"\>", "\[InvisibleSpace]", 
+   TagBox[
+    InterpretationBox[
+     StyleBox["\<\"1.895494267033978\"\>",
+      ShowStringCharacters->False],
+     1.8954942670339776`,
+     AutoDelete->True],
+    NumberForm[#, 16]& ]}],
+  SequenceForm["x = ", 
+   NumberForm[1.8954942670339776`, 16]],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.847184838975973*^9},
+ CellLabel->
+  "During evaluation of \
+In[19]:=",ExpressionUUID->"906c40b1-0385-40ce-a77c-491553b03c78"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"\\!\\(\\*Cell[\\\"Error:\\\"]\\)\"\>", "\[InvisibleSpace]", 
+   RowBox[{"-", "5.551115123125783`*^-15"}]}],
+  SequenceForm["\!\(\*Cell[\"Error:\"]\)", -5.551115123125783*^-15],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.847184838978447*^9},
+ CellLabel->
+  "During evaluation of \
+In[19]:=",ExpressionUUID->"3ee05112-6099-4e6e-8c99-07f2664bb9df"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 873},
+WindowMargins->{{12, Automatic}, {Automatic, 24}},
+FrontEndVersion->"12.3 for Mac OS X x86 (64-bit) (July 9, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"93094bca-8a1b-435d-ab4b-1fece86d923d"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2043, 64, 81, "Text",ExpressionUUID->"913c1f88-beff-4def-b7e3-3fe24c1c16d2"],
+Cell[CellGroupData[{
+Cell[2626, 88, 2025, 62, 159, "Input",ExpressionUUID->"24c7d67b-adee-4959-8962-f16ec70887ba"],
+Cell[CellGroupData[{
+Cell[4676, 154, 514, 16, 24, "Print",ExpressionUUID->"906c40b1-0385-40ce-a77c-491553b03c78"],
+Cell[5193, 172, 402, 9, 26, "Print",ExpressionUUID->"3ee05112-6099-4e6e-8c99-07f2664bb9df"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
